@@ -98,16 +98,65 @@ namespace MyLesson
             Console.WriteLine($"Сумма отрицательных чисел равен: -{sum}");
 
         }
+
+        static int MaxValue(int[,] a)
+        {
+
+            int max = 0;
+            int rowsMac = a.GetUpperBound(0)+1;
+            int columsMac = a.Length / rowsMac;
+            for(int j = 0; j < rowsMac; j++)
+            {
+                for (int k = 0; k < columsMac; k++)
+                {
+                    Console.WriteLine(a[j, k]);
+                    if(a[j,k] > max)
+                    {
+                        max = a[j,k];
+                    }
+                }
+            }
+            return max;
+        }
+
+        static int  MinValue(int[,] a)
+        {
+
+            int min = 100;
+            int rowsMac = a.GetUpperBound(0)+1;
+            int columsMac = a.Length / rowsMac;
+            for(int j = 0; j < rowsMac; j++)
+            {
+                for (int k = 0; k < columsMac; k++)
+                {
+                    Console.WriteLine(a[j, k]);
+                    if(a[j,k] < min)
+                    {
+                        min = a[j,k];
+                    }
+                }
+            }
+            return min;
+        }
         static void Main()
         {
             // // Задание 1. Определить число на полиндром
             // int[] array = {121, 234, 1221, 456, 989};
             // NumPalindrome(array);
             
-            // Задание 2. Сумма всех положительных и отрицательных чисел во многомнрном массиве.
-            int[,] a = FullArray(3, 4, -100, 100);            
-            SumArrayPositive(a);
-            SumArrayNegative(a);
+            // // Задание 2. Сумма всех положительных и отрицательных чисел во многомнрном массиве.
+            // int[,] a = FullArray(3, 4, -100, 100);            
+            // SumArrayPositive(a);
+            // SumArrayNegative(a);
+
+            // Задание 3 
+            int resultMax = MaxValue(FullArray(3, 4, 0, 100));
+            Console.WriteLine($"Максимальная значения {resultMax}");
+
+            int resultMin = MinValue(FullArray(3, 4, 0, 100));
+            Console.WriteLine($"Минимальная значения {resultMin}");
+
+            
         }
     }
 }
