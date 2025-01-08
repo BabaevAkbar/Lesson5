@@ -138,6 +138,47 @@ namespace MyLesson
             }
             return min;
         }
+
+        static int[] SortingDown(int[] array)
+        {
+            for(int i = 0; i < array.Length; i++)
+            {
+                for(int j = i + 1; j < array.Length; j++)
+                {
+                    int first = 0;
+                    int second = 0;
+                    if(array[i] < array[j])
+                    {
+                        first = array[i];
+                        second = array[j];
+                        array[i] = second;
+                        array[j] = first;
+                    }
+                }
+            }
+            return array;
+        }
+
+        static int[] SortingUp(int[] array)
+        {
+            for(int i = 0; i < array.Length; i++)
+            {
+                for(int j = i + 1; j < array.Length; j++)
+                {
+                    int first = 0;
+                    int second = 0;
+                    if(array[i] > array[j])
+                    {
+                        first = array[i];
+                        second = array[j];
+                        array[i] = second;
+                        array[j] = first;
+                    }
+                }
+            }
+            return array;
+        }
+
         static void Main()
         {
             // // Задание 1. Определить число на полиндром
@@ -149,14 +190,37 @@ namespace MyLesson
             // SumArrayPositive(a);
             // SumArrayNegative(a);
 
-            // Задание 3 
-            int resultMax = MaxValue(FullArray(3, 4, 0, 100));
-            Console.WriteLine($"Максимальная значения {resultMax}");
+            // // Задание 3 
+            // int resultMax = MaxValue(FullArray(3, 4, 0, 100));
+            // Console.WriteLine($"Максимальная значения {resultMax}");
 
-            int resultMin = MinValue(FullArray(3, 4, 0, 100));
-            Console.WriteLine($"Минимальная значения {resultMin}");
+            // int resultMin = MinValue(FullArray(3, 4, 0, 100));
+            // Console.WriteLine($"Минимальная значения {resultMin}");
 
-            
+            // Задание 4
+
+            int[] a = {17, 64, 5, 5, 92, 6, 38, 521, 54};
+            int[] b = SortingDown(a);
+            foreach(int i in a)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine();
+            foreach(int i in b)
+            {
+                Console.WriteLine(i);
+            }
+
+            int[] c = SortingUp(a);
+            foreach(int i in a)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine();
+            foreach(int i in c)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }
